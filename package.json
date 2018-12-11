@@ -1,0 +1,37 @@
+{
+  "name": "cordova-plugin-dataexchanger",
+  "version": "1.1.0",
+  "description": "DataExchanger Plugin",
+  "cordova": {
+    "id": "cordova-plugin-dataexchanger",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://homerun.unfuddle.com/git/homerun_cordovaplugindataexchanger"
+  },
+  "keywords": [
+    "cordova",
+    "bluetooth",
+    "ble",
+    "bluetoothle",
+    "bluetooth le",
+    "low energy",
+	"dataexchanger",
+	"data-exchanger",
+	"data exchanger",
+    "smart",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "Ming Leung <ming.@gt-tronics.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://homerun.unfuddle.com/git/homerun_cordovaplugindataexchanger/issues"
+  },
+  "homepage": "https://github.com/mingdee/cordova-plugin-dataexchanger#readme"
+}

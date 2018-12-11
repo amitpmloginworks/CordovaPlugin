@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin
+    xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-dataexchanger"
+    version="1.1.0">
+
+    <engines>
+      <engine name="cordova-plugman" version=">=5.0.0" />
+      <engine name="cordova-android" version=">=5.0.0" />
+    </engines>
+
+    <name>DxPlugin</name>
+    <description>DataExchanger Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>bluetooth, BLE, bluetooth low energy, bluetooth smart, DataExchanger, dataexchanger, data exchanger, DX, dx</keywords>
+
+    <repo>https://homerun.unfuddle.com/git/homerun_cordovaplugindataexchanger</repo>
+    <issue>https://homerun.unfuddle.com/git/homerun_cordovaplugindataexchanger/issues</issue>
+
+    <js-module src="www/dx.js" name="dx">
+        <clobbers target="cordova.plugin.dx" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="DxPlugin">
+                <param name="ios-package" value="DxPlugin"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/DxPlugin.h" target-dir="DxPlugin" />
+        <source-file src="src/ios/DxPlugin.m" target-dir="DxPlugin" />
+
+        <header-file src="src/ios/DxAppSC.h" target-dir="DxPlugin" />
+        <source-file src="src/ios/DxAppSC.m" target-dir="DxPlugin" />
+
+        <header-file src="src/ios/DxAppFirmLogStateMachine.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/DataExchangerDevice.h" target-dir="DxPlugin" />
+        <source-file src="src/ios/DataExchangerDevice.m" target-dir="DxPlugin" />
+
+        <header-file src="src/ios/BLEController.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/BLEControllerDeviceProtocol.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/BLEDevice.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/BLEDeviceAppDelegateProtocol.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/BLEDeviceProfileProtocol.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/BLELib.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/BLEProfile.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/DataExchangerProfile.h" target-dir="DxPlugin" />
+        <header-file src="src/ios/DataExchangerProfileProtocol.h" target-dir="DxPlugin" />
+
+        <!-- libraries -->
+        <source-file src="src/ios/libblelib.a" framework="true" />
+        <source-file src="src/ios/libDxAppFirmLogStateMachine.a" framework="true" />
+
+        <!-- frameworks -->
+        <framework src="CoreBluetooth.framework" />
+    </platform>
+
+	
+	<!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DxPlugin" >
+                <param name="android-package" value="com.gttronics.ble.DxPlugin"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/com/gttronics/ble/DxPlugin.java" target-dir="src/com/gttronics/ble" />
+		
+		<source-file src="src/android/com/gttronics/ble/blelibrary/AdRecord.java" target-dir="src/com/gttronics/ble/blelibrary" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/BleController.java" target-dir="src/com/gttronics/ble/blelibrary" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/BleControllerCallback.java" target-dir="src/com/gttronics/ble/blelibrary" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/BleDevice.java" target-dir="src/com/gttronics/ble/blelibrary" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/BleDeviceCallback.java" target-dir="src/com/gttronics/ble/blelibrary" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/BleProfile.java" target-dir="src/com/gttronics/ble/blelibrary" />
+		
+		
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/DataExchangerDevice.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/DataExchangerProfile.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/DataExchangerProfileCallback.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/DxAppController.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger" />
+		
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/callbacks/FirmwareMetaRetrievedCallback.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger/callbacks" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/callbacks/FirmwareProgressCallback.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger/callbacks" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/callbacks/FirmwareWriteCompletedCallback.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger/callbacks" />
+		
+		
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/helpers/DxAppFirmLogStateMachine.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger/helpers" />		
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/helpers/DxAppHelper.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger/helpers" />
+		
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/models/FirmwareMeta.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger/models" />
+		<source-file src="src/android/com/gttronics/ble/blelibrary/dataexchanger/models/TransferPkt.java" target-dir="src/com/gttronics/ble/blelibrary/dataexchanger/models" />
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        </config-file>
+    </platform>
+
+</plugin>
+
+
+
+
+
+
+
+
+
+
+
